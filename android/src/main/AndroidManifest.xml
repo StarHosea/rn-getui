@@ -1,0 +1,55 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.getui.reactnativegetui">
+  <!--网络连接（必选）-->
+  <uses-permission android:name="android.permission.INTERNET"/>
+  <!--  获取手机状态参数，并作为生成个推唯一标识的必要参数（必选）-->
+  <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+  <!--  （3）查看网络状态，sdk重连机制等需要使用（必选）-->
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+<!--  （4）查看wifi连接状态（必选）-->
+  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+<!--  （5）震动权限（使用通知功能必选）-->
+  <uses-permission android:name="android.permission.VIBRATE"/>
+<!--  （6）获取任务信息，目的是防止sdk被频繁唤醒（必选）-->
+  <uses-permission android:name="android.permission.GET_TASKS"/>
+<!--  （7）自定义权限，内部广播通信及为了防止小部分手机服务没法正常工作（必选）-->
+  <uses-permission android:name="getui.permission.GetuiService.${applicationId}"/>
+  <permission
+    android:name="getui.permission.GetuiService.${applicationId}"
+    android:protectionLevel="signature"/>
+<!--  （8）兼容android12 alarm权限（必选）-->
+  <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+<!--  （9）vivo角标设置（必选）-->
+  <uses-permission android:name="com.vivo.notification.permission.BADGE_ICON" />
+  <!--  AndroidManifest文件添加标签，适配 android11及以上 -->
+  <queries>
+    <intent>
+      <action android:name="com.getui.sdk.action" />
+    </intent>
+  </queries>
+  <application>
+
+        <!-- 用户自定义服务继承自GTIntentService,作为SDK与APP桥梁服务,用来接收各种消息和命令回复 -->
+        <service
+            android:name="com.getui.reactnativegetui.PushIntentService"/>
+        <!-- 配置SDK核心服务 -->
+        <service
+            android:name="com.getui.reactnativegetui.DemoPushService"
+            android:exported="true"
+            android:label="PushService"
+            android:process=":pushservice" />
+
+
+        <!-- 个推SDK配置结束 -->
+
+    </application>
+
+     <!-- 适配android 11及以上，强烈建议加上 -->
+    <queries>
+        <intent>
+            <action android:name="com.getui.sdk.action" />
+        </intent>
+    </queries>
+
+
+</manifest>

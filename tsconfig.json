@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "jsx": "react",
+    "lib": ["esnext", "DOM"],
+    "noImplicitAny": false,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "baseUrl": "./",
+    "target": "esnext"
+  },
+  "include": ["./src"],
+  "extends": "expo-module-scripts/tsconfig.base",
+}
