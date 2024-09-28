@@ -15,8 +15,35 @@ Getui.initPush("my-appid");
 Getui.onPushMessage((message)=>{
     console.log('push message', message.payload);
 });
-
+// 
 Getui.onNotificationEvent((evt)=>{
     console.log('notification event', evt);
 });
+
+// clientId 变化回调
+Getui.onClientId(({ cid })=>{
+
+});
+// 在线状态变化回调
+Getui.onOnlineStatus(( { onlineState} )=>{
+
+});
+// pid 变化回调
+Getiu.onServerPid(( { pid } )=>{})
+
+
+Getui.bindAlias("");
+Getui.unbindAlias("");
+Getui.turnOnPush();
+Getui.turnOffPush();
+Getui.setTag(["my-tag"]);
+Getui.stop();
+Getui.resume();
+
+const clientId = Getui.getClientId();
+const version = Getui.getVersion();
+const isPushTuredOn = Getui.isPushTurnedOn();
+
 ```
+
+
