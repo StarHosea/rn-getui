@@ -7,6 +7,9 @@
   "types": "lib/typescript/index.d.ts",
   "source": "src/index",
   "private":false,
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     "lib",
     "android",
